@@ -45,7 +45,7 @@ class Appointment(SoftDeleteModel):
         User,
         on_delete=models.PROTECT,
         related_name='appointments',
-        limit_choices_to={'role': User.Role.VETERINARIAN}
+        limit_choices_to={'role': 'veterinarian'}
     )
     type = models.ForeignKey(
         AppointmentType,

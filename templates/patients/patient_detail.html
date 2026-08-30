@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}{{ patient.name }}{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between mb-4">
+    <h2 class="fw-bold">{{ patient.name }}</h2>
+    <a href="{% url 'patients:edit' patient.pk %}" class="btn btn-outline-success">Edit</a>
+</div>
+<div class="card border-0 shadow-sm">
+    <div class="card-body">
+        <p><strong>Species:</strong> {{ patient.species.name }}</p>
+        <p><strong>Breed:</strong> {{ patient.breed|default:"—" }}</p>
+        <p><strong>Owner:</strong> {{ patient.owner.full_name }} ({{ patient.owner.phone }})</p>
+        <p><strong>Gender:</strong> {{ patient.get_gender_display }}</p>
+        <p><strong>Weight:</strong> {{ patient.weight_kg|default:"—" }} kg</p>
+        <p><strong>Notes:</strong> {{ patient.notes|default:"—" }}</p>
+    </div>
+</div>
+{% endblock %}

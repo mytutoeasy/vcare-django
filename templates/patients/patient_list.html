@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Patients{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between mb-4">
+    <h2 class="fw-bold">Patients</h2>
+    <a href="{% url 'patients:create' %}" class="btn btn-success"><i class="bi bi-plus"></i> New Patient</a>
+</div>
+<div class="card border-0 shadow-sm">
+    <div class="card-body">
+        <form class="mb-3">
+            <input type="search" name="q" value="{{ request.GET.q }}" class="form-control" placeholder="Search patients...">
+        </form>
+        <table class="table table-hover">
+            <thead><tr><th>Name</th><th>Species</th><th>Owner</th><th>Actions</th></tr></thead>
+            <tbody>
+            {% for p in patients %}
+                <tr>
+                    <td><a href="{% url 'patients:detail' p.pk %}">{{ p.name }}</a></td>
+                    <td>{{ p.species.name }}</td>
+                    <td>{{ p.owner.full_name }}</td>
+                    <td><a href="{% url 'patients:edit' p.pk %}" class="btn btn-sm btn-outline-success">Edit</a></td>
+                </tr>
+            {% empty %}
+                <tr><td colspan="4" class="text-center text-muted">No patients found</td></tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

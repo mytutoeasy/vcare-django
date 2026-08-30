@@ -1,0 +1,75 @@
+/* vCare custom styles - White / Green light theme */
+
+:root {
+    --vcare-green: #4CAF50;
+    --vcare-green-dark: #2E7D32;
+    --vcare-green-light: #E8F5E9;
+    --sidebar-width: 250px;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #f8faf9;
+}
+
+#sidebar {
+    width: var(--sidebar-width);
+    min-height: 100vh;
+    position: sticky;
+    top: 0;
+}
+
+#sidebar .nav-link {
+    color: #555;
+    font-weight: 500;
+    padding: 0.65rem 1rem;
+    transition: all 0.2s;
+}
+
+#sidebar .nav-link:hover,
+#sidebar .nav-link.active {
+    background-color: var(--vcare-green-light);
+    color: var(--vcare-green-dark);
+}
+
+#sidebar .nav-link.active {
+    font-weight: 600;
+}
+
+.bg-success-subtle {
+    background-color: #E8F5E9 !important;
+}
+
+.text-success {
+    color: var(--vcare-green-dark) !important;
+}
+
+.btn-success {
+    background-color: var(--vcare-green);
+    border-color: var(--vcare-green);
+}
+
+.btn-success:hover {
+    background-color: var(--vcare-green-dark);
+    border-color: var(--vcare-green-dark);
+}
+
+.card {
+    border-radius: 12px;
+}
+
+.shadow-sm {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
+}
+
+.table th {
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #666;
+}
+
+.badge {
+    font-weight: 500;
+}
